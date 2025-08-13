@@ -1,13 +1,18 @@
 import './App.css';
 
-import {
-  useEffect,
-  useState,
-} from 'react';
+import { useState } from 'react';
+
+import CallbackFetchSpinnerDemo from './components/CallbackFetchSpinnerDemo';
+import FormFrameworkDemo from './components/FormFrameworkDemo';
+import HocDemo from './components/HocDemo';
+import InitialLoadDemo from './components/InitialLoadDemo';
+import ReactRouterDemo from './components/ReactRouterDemo';
+import ReduxStateEngineDemo from './components/ReduxStateEngineDemo';
+import RefTypingDebounceDemo from './components/RefTypingDebounceDemo';
 
 const DemoTile = ({children}: {children: any}) => {
   const [isActive, setIsActive] = useState(false);
-  return <div>
+  return <div className="demo-container">
     {isActive && children}
     {!isActive && (
       <button className="btn btn-success m-2" onClick={() => setIsActive(true)}>Activate</button>
@@ -15,34 +20,18 @@ const DemoTile = ({children}: {children: any}) => {
     </div>
 };
 
-type DemoProps = {
-  children: any;
-  name: string;
-};
-const BaseDemo = ({children, name}: DemoProps) => {
-  useEffect(() => {
-    console.log("demo active: " + name)
-  }, [name]);
-
-  return children;
-};
-
-const InitialLoadDemo = ({children, name}: DemoProps) => {
-  return <BaseDemo name={name}>{children}</BaseDemo>;
-};
-
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <main>
         <div>ALL DEMOS INACTIVE UNTIL CLICKED ON</div>
-        <DemoTile><InitialLoadDemo name="Initial Load Demo"><div>useref: initial load set input focus</div></InitialLoadDemo></DemoTile>
-        <DemoTile><div>callback: fetch, load with spinner</div></DemoTile>
-        <DemoTile><div>redux / state engine</div></DemoTile>
-        <DemoTile><div>useref: uncontrolled component, check as you type, debounce 1 second</div></DemoTile>
-        <DemoTile><div>react router: params, pass data, set context data, more?</div></DemoTile>
-        <DemoTile><div>hoc: TBD: need something that has real value</div></DemoTile>
-        <DemoTile><div>react form frameworks?</div></DemoTile>
+        <DemoTile><InitialLoadDemo name="Initial Load Demo" /></DemoTile>
+        <DemoTile><CallbackFetchSpinnerDemo name="CallbackFetchSpinnerDemo" /></DemoTile>{ /* CallbackFetchSpinnerDemo */ }
+        <DemoTile><ReduxStateEngineDemo name="ReduxStateEngineDemo" /></DemoTile>
+        <DemoTile><RefTypingDebounceDemo name="RefTypingDebounceDemo" /></DemoTile>
+        <DemoTile><ReactRouterDemo name="ReactRouterDemo" /></DemoTile>
+        <DemoTile><HocDemo name="HocDemo" /></DemoTile>
+        <DemoTile><FormFrameworkDemo name="FormFrameworkDemo" /></DemoTile>
       </main>
     </div>
   );
