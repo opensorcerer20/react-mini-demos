@@ -10,7 +10,7 @@ const DemoTile = ({children}: {children: any}) => {
   return <div>
     {isActive && children}
     {!isActive && (
-      <button onClick={() => setIsActive(true)}>Activate</button>
+      <button className="btn btn-success m-2" onClick={() => setIsActive(true)}>Activate</button>
     )}
     </div>
 };
@@ -42,6 +42,7 @@ const App = () => {
         <DemoTile><div>useref: uncontrolled component, check as you type, debounce 1 second</div></DemoTile>
         <DemoTile><div>react router: params, pass data, set context data, more?</div></DemoTile>
         <DemoTile><div>hoc: TBD: need something that has real value</div></DemoTile>
+        <DemoTile><div>react form frameworks?</div></DemoTile>
       </main>
     </div>
   );
