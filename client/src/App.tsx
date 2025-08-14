@@ -12,7 +12,7 @@ import RefTypingDebounceDemo from './components/RefTypingDebounceDemo';
 
 const DemoTile = ({children}: {children: any}) => {
   const [isActive, setIsActive] = useState(false);
-  return <div className="demo-container">
+  return <div className="item demo-container">
     {isActive && children}
     {!isActive && (
       <button className="btn btn-success m-2" onClick={() => setIsActive(true)}>Activate</button>
@@ -22,18 +22,17 @@ const DemoTile = ({children}: {children: any}) => {
 
 const App = () => {
   return (
-    <div className="app">
-      <main>
-        <div>ALL DEMOS INACTIVE UNTIL CLICKED ON</div>
+    <main>
+      <div className="grid-container">
         <DemoTile><InitialLoadDemo name="Initial Load Demo" /></DemoTile>
-        <DemoTile><CallbackFetchSpinnerDemo name="CallbackFetchSpinnerDemo" /></DemoTile>{ /* CallbackFetchSpinnerDemo */ }
-        <DemoTile><ReduxStateEngineDemo name="ReduxStateEngineDemo" /></DemoTile>
-        <DemoTile><RefTypingDebounceDemo name="RefTypingDebounceDemo" /></DemoTile>
-        <DemoTile><ReactRouterDemo name="ReactRouterDemo" /></DemoTile>
+        <DemoTile><CallbackFetchSpinnerDemo name="Callback Fetch Spinner Demo" /></DemoTile>
+        <DemoTile><ReduxStateEngineDemo name="Redux State Engine Demo" /></DemoTile>
+        <DemoTile><RefTypingDebounceDemo name="Ref Typing Debounce Demo" /></DemoTile>
+        <DemoTile><ReactRouterDemo name="React Router Demo" /></DemoTile>
         <DemoTile><HocDemo name="HocDemo" /></DemoTile>
-        <DemoTile><FormFrameworkDemo name="FormFrameworkDemo" /></DemoTile>
-      </main>
-    </div>
+        <DemoTile><FormFrameworkDemo name="Form Framework Demo" /></DemoTile>
+      </div>
+    </main>
   );
 }
 
