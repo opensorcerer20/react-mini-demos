@@ -24,9 +24,12 @@ const InitialLoadDemo = ({name}: {name: string}) => {
 
   return <BaseDemo name={name}>
     {loading && (
-      <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
+      <>
+        <div>Loading...</div>
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </>
     )}
     {!loading && <div>{JSON.stringify(data)}</div>}
   </BaseDemo>;
